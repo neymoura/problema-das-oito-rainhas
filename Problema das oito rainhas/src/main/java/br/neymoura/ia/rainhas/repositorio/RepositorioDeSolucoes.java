@@ -8,13 +8,12 @@ import br.neymoura.ia.rainhas.tabuleiro.ManipuladorTabuleiro;
 
 public class RepositorioDeSolucoes {
 
-	//para mais detalhes: http://pt.wikipedia.org/wiki/Problema_das_oito_damas
+	// para mais detalhes: http://pt.wikipedia.org/wiki/Problema_das_oito_damas
 	public static int SOLUCOES_POSSIVEIS = 92;
 
 	private List<Estado> solucoesEncontradas;
 
 	public RepositorioDeSolucoes() {
-
 		solucoesEncontradas = new ArrayList<Estado>();
 	}
 
@@ -29,8 +28,7 @@ public class RepositorioDeSolucoes {
 
 		for (Estado solucaoEncontrada : solucoesEncontradas) {
 
-			if (solucaoEncontrada.toString().equalsIgnoreCase(
-					novaSolucao.toString())) {
+			if (solucaoEncontrada.compareTo(novaSolucao)) {
 				solucoesIguais = true;
 				break;
 			}
@@ -57,20 +55,20 @@ public class RepositorioDeSolucoes {
 			return false;
 		}
 	}
-	
-	public void imprimeSolucoesEncontradas(){
-		
+
+	public void imprimeSolucoesEncontradas() {
+
 		System.out.println("------------------------------------------");
 		System.out.println("------------------Soluções----------------");
 		System.out.println("------------------------------------------");
-		
+
 		int contador = 0;
-		
+
 		for (Estado estado : solucoesEncontradas) {
-			System.out.println("Solução "+ (++contador) + ":");
+			System.out.println("Solução " + (++contador) + ":");
 			new ManipuladorTabuleiro(estado.estado).imprimeTabuleiro();
 		}
-		
+
 		System.out.println("------------------------------------------");
 		System.out.println("--------------Fim-Soluções----------------");
 		System.out.println("------------------------------------------");

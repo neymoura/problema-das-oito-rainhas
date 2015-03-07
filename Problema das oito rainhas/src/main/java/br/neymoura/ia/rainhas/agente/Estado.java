@@ -2,7 +2,7 @@ package br.neymoura.ia.rainhas.agente;
 
 import com.google.gson.Gson;
 
-public class Estado {
+public class Estado{
 
 	public Estado(int[][] estado, int utilidade) {
 		this.estado = estado;
@@ -16,5 +16,13 @@ public class Estado {
 	public String toString() {
 		return new Gson().toJson(this);
 	}
+	
+	public boolean compareTo(Estado o) {
+		if(toString().equalsIgnoreCase(o.toString())){
+			return true;
+		}
+		return false;
+	}
+
 
 }

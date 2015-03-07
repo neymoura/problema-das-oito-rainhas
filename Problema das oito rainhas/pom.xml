@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.unifor.ia</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Problema Das Oito Rainhas</name>
+  <description>Projeto de IA que faz uso de um agente inteligente para resolver o problema do posicionamento das oito rainhas no tabuleiro de xadrez</description>
+  <artifactId>rainhas</artifactId>
+  
+  <dependencies>
+	
+  	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+	  	
+  
+  </dependencies>
+  
+</project>

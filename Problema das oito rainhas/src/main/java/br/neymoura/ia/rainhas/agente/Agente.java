@@ -1,8 +1,10 @@
 package br.neymoura.ia.rainhas.agente;
 
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import br.neymoura.ia.rainhas.tabuleiro.ManipuladorTabuleiro;
 import br.neymoura.ia.rainhas.tabuleiro.Posicao;
@@ -25,18 +27,15 @@ public class Agente {
 
 		LinkedList<Estado> filaDeEstados = new LinkedList<Estado>();
 
-		Estado estadoInicial = new Estado(
-				new int[ManipuladorTabuleiro.DIMENSAO_PADRAO][ManipuladorTabuleiro.DIMENSAO_PADRAO],
-				0);
-		estadoInicial.utilidade = utilidade(estadoInicial.estado);
+		Estado estadoInicial = criaEstadoInicial();
 
 		filaDeEstados.add(estadoInicial);
 
-		int timesCounter = 0;
+		int iterationCounter = 0;
 
 		while (!filaDeEstados.isEmpty()) {
 
-			System.out.println("[" + (timesCounter++)
+			System.out.println("[" + (iterationCounter++)
 					+ "]Agente executando... ");
 
 			Estado estadoAtual = filaDeEstados.poll();
@@ -57,14 +56,8 @@ public class Agente {
 				new ManipuladorTabuleiro(estadoAtual.estado).imprimeTabuleiro();
 			}
 
-			// testa por solucao impossivel
-			if (new ManipuladorTabuleiro(estadoAtual.estado)
-					.getPosicoesLivresESeguras().size() == 0) {
-				break;
-			}
-
 			List<Estado> estadosSucessores = funcaoSucessora(estadoAtual.estado);
-
+			
 			Estado sucessorMaisUtil = new Estado(
 					new int[ManipuladorTabuleiro.DIMENSAO_PADRAO][ManipuladorTabuleiro.DIMENSAO_PADRAO],
 					0);
@@ -77,13 +70,24 @@ public class Agente {
 
 			estadosSucessores.remove(sucessorMaisUtil);
 
-			filaDeEstados.addAll(0, estadosSucessores);
+			filaDeEstados.addAll(estadosSucessores);
 			filaDeEstados.addFirst(sucessorMaisUtil);
 
 		}
 
 		System.out.println("--Agente terminou sua execução--");
 
+	}
+
+	private Estado criaEstadoInicial() {
+
+		Estado estadoInicial = new Estado(
+				new int[ManipuladorTabuleiro.DIMENSAO_PADRAO][ManipuladorTabuleiro.DIMENSAO_PADRAO],
+				0);
+		
+		estadoInicial.utilidade = utilidade(estadoInicial.estado);
+
+		return estadoInicial;
 	}
 
 	/**
@@ -143,12 +147,16 @@ public class Agente {
 		// o posicionamento de mais rainhas.
 
 		// Verifica se o estado informado é o objetivo
-		if (testaEstadoObjetivo(estado) == true) {
-			return Integer.MAX_VALUE;
-		}
-
-		return new ManipuladorTabuleiro(estado).getPosicoesLivresESeguras()
-				.size();
+//		if (testaEstadoObjetivo(estado) == true) {
+//			return Integer.MAX_VALUE;
+//		}
+//
+//		return new ManipuladorTabuleiro(estado).getPosicoesLivresESeguras()
+//				.size();
+		
+		Random random = new Random();
+		
+		return random.nextInt(10);
 
 	}
 

@@ -1,4 +1,4 @@
-package br.unifor.ia.rainhas.tabuleiro;
+package br.neymoura.ia.rainhas.tabuleiro;
 
 public class Posicao {
 	

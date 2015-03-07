@@ -1,11 +1,11 @@
-package br.unifor.ia.rainhas.agente;
+package br.neymoura.ia.rainhas.agente;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import br.unifor.ia.rainhas.tabuleiro.ManipuladorTabuleiro;
-import br.unifor.ia.rainhas.tabuleiro.Posicao;
+import br.neymoura.ia.rainhas.tabuleiro.ManipuladorTabuleiro;
+import br.neymoura.ia.rainhas.tabuleiro.Posicao;
 
 /**
  * Implementação de um agente baseado em utilidade para resolver o problema do
@@ -101,7 +101,7 @@ public class Agente {
 
 		for (Posicao posicao : estadosLivresESeguros) {
 
-			//efetua cópia do estado para uma variável temporária
+			// efetua cópia do estado para uma variável temporária
 			int[][] estadoTemp = new int[estado.length][estado.length];
 
 			for (int i = 0; i < estadoTemp.length; i++) {
@@ -109,7 +109,7 @@ public class Agente {
 					estadoTemp[i][j] = estado[i][j];
 				}
 			}
-			//fim da cópia
+			// fim da cópia
 
 			ManipuladorTabuleiro mTabuleiro = new ManipuladorTabuleiro(
 					estadoTemp);

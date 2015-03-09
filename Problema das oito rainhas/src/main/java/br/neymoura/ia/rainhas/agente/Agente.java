@@ -40,19 +40,16 @@ public class Agente {
 
 			Estado estadoAtual = filaDeEstados.poll();
 
-			if (estadoAtual == null) {
-				continue;
-			}
-
 			System.out.println("Utilidade atual: " + estadoAtual.utilidade);
 
 			if (testaEstadoObjetivo(estadoAtual.estado)) {
+
 				System.out.println("\n-----Solução-----");
 				new ManipuladorTabuleiro(estadoAtual.estado).imprimeTabuleiro();
 				System.out.println("-----Solução-----\n");
-				
+
 				break;
-				
+
 			} else {
 				new ManipuladorTabuleiro(estadoAtual.estado).imprimeTabuleiro();
 			}
@@ -70,8 +67,8 @@ public class Agente {
 			}
 
 			estadosSucessores.remove(sucessorMaisUtil);
-
-			filaDeEstados.addAll(estadosSucessores);
+			
+			filaDeEstados.addAll(0, estadosSucessores);
 			filaDeEstados.addFirst(sucessorMaisUtil);
 
 		}
@@ -148,12 +145,12 @@ public class Agente {
 		// o posicionamento de mais rainhas.
 
 		// Verifica se o estado informado é o objetivo
-		// if (testaEstadoObjetivo(estado) == true) {
-		// return Integer.MAX_VALUE;
-		// }
-		//
-		// return new ManipuladorTabuleiro(estado).getPosicoesLivresESeguras()
-		// .size();
+//		if (testaEstadoObjetivo(estado) == true) {
+//			return Integer.MAX_VALUE;
+//		}
+//
+//		return new ManipuladorTabuleiro(estado).getPosicoesLivresESeguras()
+//				.size();
 
 		Random random = new Random();
 
@@ -169,9 +166,9 @@ public class Agente {
 	 */
 	private boolean testaEstadoObjetivo(int[][] estado) {
 
-		// O objetivo é possuir 8 rainhas posicionadas no tabuleiro.
+		// O objetivo é possuir n, igual a dimensao do tabuleiro, rainhas posicionadas no tabuleiro.
 
-		if (new ManipuladorTabuleiro(estado).contaRainhasNoTabuleiro() == 8) {
+		if (new ManipuladorTabuleiro(estado).contaRainhasNoTabuleiro() == ManipuladorTabuleiro.DIMENSAO_PADRAO) {
 			return true;
 		} else {
 			return false;

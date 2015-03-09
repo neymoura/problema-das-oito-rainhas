@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ManipuladorTabuleiro {
 
-	public static final int DIMENSAO_PADRAO = 8;
+	public static final int DIMENSAO_PADRAO = 4;
 
 	private static final int POSICAO_LIVRE = 0;
 	private static final int POSICAO_RAINHA = 1;
@@ -199,9 +199,9 @@ public class ManipuladorTabuleiro {
 			for (int j = 0; j < tabuleiro.length; j++) {
 
 				if (tabuleiro[i][j] == POSICAO_EM_ATAQUE && MASCARAR_POS_ATAQUE) {
-					System.out.print(MASCARA_POS_ATAQUE + "\t");
+					System.out.print(" " + MASCARA_POS_ATAQUE + " ");
 				} else {
-					System.out.print(tabuleiro[i][j] + "\t");
+					System.out.print(" " + tabuleiro[i][j] + " ");
 				}
 
 			}

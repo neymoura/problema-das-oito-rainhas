@@ -18,10 +18,18 @@ public class Estado{
 	}
 	
 	public boolean compareTo(Estado o) {
-		if(toString().equalsIgnoreCase(o.toString())){
-			return true;
+		
+		boolean estadosIguais = true;
+		
+		for (int i = 0; i < estado.length; i++) {
+			for (int j = 0; j < estado.length; j++) {
+				if(this.estado[i][j] != o.estado[i][j]){
+					estadosIguais = false;
+				}
+			}
 		}
-		return false;
+		
+		return estadosIguais;
 	}
 
 

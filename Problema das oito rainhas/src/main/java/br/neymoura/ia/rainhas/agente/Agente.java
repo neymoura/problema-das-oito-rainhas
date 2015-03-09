@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import br.neymoura.ia.rainhas.repositorio.RepositorioDeSolucoes;
 import br.neymoura.ia.rainhas.tabuleiro.ManipuladorTabuleiro;
 import br.neymoura.ia.rainhas.tabuleiro.Posicao;
 
@@ -16,7 +15,7 @@ import br.neymoura.ia.rainhas.tabuleiro.Posicao;
  * @author Ney
  * @since 05/03/2015
  */
-public class Agente extends RepositorioDeSolucoes {
+public class Agente {
 
 	public Agente() {
 		super();
@@ -51,12 +50,8 @@ public class Agente extends RepositorioDeSolucoes {
 				System.out.println("\n-----Solução-----");
 				new ManipuladorTabuleiro(estadoAtual.estado).imprimeTabuleiro();
 				System.out.println("-----Solução-----\n");
-
-				salvaSolucao(estadoAtual);
 				
-				if(isNumeroDeSolucoesSatisfatorio()){
-					break;
-				}
+				break;
 				
 			} else {
 				new ManipuladorTabuleiro(estadoAtual.estado).imprimeTabuleiro();
@@ -82,11 +77,7 @@ public class Agente extends RepositorioDeSolucoes {
 		}
 
 		System.out.println("--Agente terminou sua execução--");
-		
-		System.out.println("\n" + contaSolucoesEncontradas() + " soluções encontradas!");
-		
-		imprimeSolucoesEncontradas();
-		
+
 	}
 
 	private Estado criaEstadoInicial() {

@@ -17,20 +17,4 @@ public class Estado{
 		return new Gson().toJson(this);
 	}
 	
-	public boolean compareTo(Estado o) {
-		
-		boolean estadosIguais = true;
-		
-		for (int i = 0; i < estado.length; i++) {
-			for (int j = 0; j < estado.length; j++) {
-				if(this.estado[i][j] != o.estado[i][j]){
-					estadosIguais = false;
-				}
-			}
-		}
-		
-		return estadosIguais;
-	}
-
-
 }
